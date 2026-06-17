@@ -8,18 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class TestPerformance {
-
-  // TODO run test and record running times for SIZE = 10, 100, 1000, 10000, ...
-  // (choose in conjunction with REPS below up to an upper limit where the clock
-  // running time is in the tens of seconds)
-  // TODO Question: What conclusions can you draw about the performance of LinkedList vs. ArrayList when
-  // comparing their running times for AddRemove vs. Access? Record those running times in README.txt!
-  // TODO (optional) refactor to DRY
-  // which of the two lists performs better as the size increases?
-  private final int SIZE = 10;
-
-  // TODO choose this value in such a way that you can observe an actual effect
-  // for increasing problem sizes
+  private final int SIZE = 1000;
   private final int REPS = 1000000;
 
   private List<Integer> arrayList;

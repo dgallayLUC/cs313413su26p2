@@ -7,6 +7,7 @@ import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import org.junit.After;
 import org.junit.Before;
@@ -19,10 +20,8 @@ public class TestIterator {
 
   @Before
   public void setUp() throws Exception {
-    list = new ArrayList<Integer>();
-    // TODO Question: Also try with a LinkedList - does it make any difference?
-    // functionally no, but a LL is more efficient:
-    // we can remove in O(1), whereas arrayList requires us to shift following elements = O(n)
+    // list = new ArrayList<Integer>();
+    list = new LinkedList<Integer>();
   }
 
   @After
@@ -48,7 +47,6 @@ public class TestIterator {
     final var i = list.iterator();
     assertTrue(i.hasNext());
     assertEquals(33, i.next().intValue());
-    // TODO fix the expected values in the assertions below
     assertTrue(i.hasNext());
     assertEquals(77, i.next().intValue());
     assertTrue(i.hasNext());
@@ -76,12 +74,9 @@ public class TestIterator {
     final var i = list.iterator();
     while (i.hasNext()) {
       if (i.next() == 77) {
-        i.remove(); // TODO Question: What happens if you use list.remove(Integer.valueOf(77))?
-                    // the list's count while change mid-iteration, and it will fail on the next loop
-                    // with a ConcurrentModificationException
+        i.remove();
       }
     }
-    // TODO using assertEquals and List.of, express which values are left in the list
     assertEquals(List.of(33, 44, 55, 66), list);
   }
 
@@ -96,7 +91,6 @@ public class TestIterator {
     list.add(66);
     double sum = 0;
     int n = 0;
-    // TODO use an iterator and a while loop to compute the average (mean) of the values
     final var i = list.iterator();
     while (i.hasNext()) {
       sum += i.next();

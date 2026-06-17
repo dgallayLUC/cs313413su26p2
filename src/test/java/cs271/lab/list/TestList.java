@@ -18,8 +18,7 @@ public class TestList {
   @Before
   public void setUp() throws Exception {
     list = new ArrayList<Integer>();
-    // TODO Question: Also try with a LinkedList - does it make any difference?
-    // This has no functional or efficiency benefit, other than a change to the underlying data structure
+    // list = new LinkedList<Integer>();
   }
 
   @After
@@ -40,7 +39,6 @@ public class TestList {
 
   @Test
   public void testSizeNonEmpty() {
-    // TODO fix the expected values in the assertions below
     list.add(77);
     assertEquals(false, list.isEmpty());
     assertEquals(1, list.size());
@@ -49,8 +47,6 @@ public class TestList {
 
   @Test
   public void testContains() {
-    // TODO write assertions using
-    // list.contains(77)
     assertTrue(!list.contains(77));
     list.add(77);
     // that hold before and after adding 77 to the list
@@ -62,7 +58,6 @@ public class TestList {
     list.add(77);
     list.add(77);
     list.add(77);
-    // TODO fix the expected values in the assertions below
     assertEquals(3, list.size());
     assertEquals(0, list.indexOf(77));
     assertEquals(77, list.get(1).intValue());
@@ -78,7 +73,6 @@ public class TestList {
     list.add(55);
     list.add(77);
     list.add(66);
-    // TODO fix the expected values in the assertions below
     assertEquals(7, list.size());
     assertEquals(1, list.indexOf(77));
     assertEquals(5, list.lastIndexOf(77));
@@ -96,16 +90,13 @@ public class TestList {
     list.add(5);
     list.add(77);
     list.add(6);
-    list.remove(5); // TODO Question: What does this method do?
-                          // it removes the item at index 5 in the list (the 3rd occurrence of 77)
-    // TODO fix the expected values in the assertions below
+    list.remove(5);
     assertEquals(6, list.size());
     assertEquals(1, list.indexOf(77));
     assertEquals(3, list.lastIndexOf(77));
     assertEquals(4, list.get(2).intValue());
     assertEquals(77, list.get(3).intValue());
-    list.remove(Integer.valueOf(5)); // TODO Question: What does this one do?
-                                        // it removes the first occurrence of the value '5' in the list (index 4)
+    list.remove(Integer.valueOf(5));
     assertEquals(5, list.size());
     assertEquals(1, list.indexOf(77));
     assertEquals(3, list.lastIndexOf(77));
@@ -122,7 +113,6 @@ public class TestList {
     list.add(55);
     list.add(77);
     list.add(66);
-    // TODO using containsAll and List.of (see above),
     // 1) assert that list contains all five different numbers added
     assertTrue(list.containsAll(List.of(33, 77, 44, 55, 66)));
     // 2) assert that list does not contain all of 11, 22, and 33
@@ -131,7 +121,6 @@ public class TestList {
 
   @Test
   public void testAddAll() {
-    // TODO in a single statement using addAll and List.of,
     // add items to the list to make the following assertions pass
     // (without touching the assertions themselves)
     list.addAll(List.of(33, 77, 44, 77, 55, 77, 66));
@@ -155,7 +144,6 @@ public class TestList {
     list.add(55);
     list.add(77);
     list.add(66);
-    // TODO in a single statement using removeAll and List.of,
     // remove items from the list to make the following assertions pass
     // (without touching the assertions themselves)
     list.removeAll(List.of(33, 44, 55, 66));
@@ -173,7 +161,6 @@ public class TestList {
     list.add(55);
     list.add(77);
     list.add(66);
-    // TODO in a single statement using retainAll and List.of,
     // remove items from the list to make the following assertions pass
     // (without touching the assertions themselves)
     list.retainAll(List.of(77));
@@ -191,7 +178,6 @@ public class TestList {
     list.add(55);
     list.add(77);
     list.add(66);
-    // TODO use the set method to change specific elements in the list
     // such that the following assertions pass
     // (without touching the assertions themselves)
     list.set(1, 99);
@@ -217,7 +203,6 @@ public class TestList {
     list.add(55);
     list.add(77);
     list.add(66);
-    // TODO fix the arguments in the subList method so that the assertion
     // passes
     assertEquals(List.of(44, 77, 55), list.subList(2, 5));
   }
