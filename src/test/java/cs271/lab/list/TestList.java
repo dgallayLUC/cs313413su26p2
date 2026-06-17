@@ -51,7 +51,7 @@ public class TestList {
   public void testContains() {
     // TODO write assertions using
     // list.contains(77)
-    assertFalse(list.contains(77));
+    assertTrue(!list.contains(77));
     list.add(77);
     // that hold before and after adding 77 to the list
     assertTrue(list.contains(77));
@@ -84,7 +84,7 @@ public class TestList {
     assertEquals(5, list.lastIndexOf(77));
     assertEquals(44, list.get(2).intValue());
     assertEquals(77, list.get(3).intValue());
-    assertEquals(List.of(33, 77, 44), list);
+    assertEquals(List.of(33, 77, 44, 77, 55, 77, 66), list);
   }
 
   @Test
@@ -99,14 +99,14 @@ public class TestList {
     list.remove(5); // TODO Question: What does this method do?
                           // it removes the item at index 5 in the list (the 3rd occurrence of 77)
     // TODO fix the expected values in the assertions below
-    assertEquals(0, list.size());
-    assertEquals(0, list.indexOf(77));
-    assertEquals(0, list.lastIndexOf(77));
-    assertEquals(0, list.get(2).intValue());
-    assertEquals(0, list.get(3).intValue());
+    assertEquals(6, list.size());
+    assertEquals(1, list.indexOf(77));
+    assertEquals(3, list.lastIndexOf(77));
+    assertEquals(4, list.get(2).intValue());
+    assertEquals(77, list.get(3).intValue());
     list.remove(Integer.valueOf(5)); // TODO Question: What does this one do?
                                         // it removes the first occurrence of the value '5' in the list (index 4)
-    assertEquals(6, list.size());
+    assertEquals(5, list.size());
     assertEquals(1, list.indexOf(77));
     assertEquals(3, list.lastIndexOf(77));
     assertEquals(4, list.get(2).intValue());
@@ -126,7 +126,7 @@ public class TestList {
     // 1) assert that list contains all five different numbers added
     assertTrue(list.containsAll(List.of(33, 77, 44, 55, 66)));
     // 2) assert that list does not contain all of 11, 22, and 33
-    assertFalse(list.containsAll(List.of(11, 22, 33)));
+    assertTrue(!list.containsAll(List.of(11, 22, 33)));
   }
 
   @Test

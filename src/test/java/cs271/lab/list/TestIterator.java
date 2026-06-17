@@ -60,7 +60,7 @@ public class TestIterator {
     assertTrue(i.hasNext());
     assertEquals(77, i.next().intValue());
     assertTrue(i.hasNext());
-    assertEquals(56, i.next().intValue());
+    assertEquals(66, i.next().intValue());
     assertFalse(i.hasNext());
   }
 
